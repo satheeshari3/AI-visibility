@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docs - AI Rank</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">AI Rank</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/help">Docs</a>
+      <a href="/blog">Blog</a>
+    </div>
+  </nav>
+
+  <main class="page-container docs">
+    <header class="page-header">
+      <h1>Documentation</h1>
+      <p>How AI Rank works and how to use it.</p>
+    </header>
+
+    <section class="docs-section">
+      <h2>Overview</h2>
+      <p>AI Rank tests how often your website is mentioned when ChatGPT answers category-related prompts. You enter your website URL and product category; we run many prompts and return a visibility score plus suggestions.</p>
+    </section>
+
+    <section class="docs-section">
+      <h2>Using the web app</h2>
+      <ol class="docs-steps">
+        <li><strong>What's your website?</strong> — Enter your domain (e.g. example.com).</li>
+        <li><strong>What does your website do?</strong> — Describe your product (e.g. pdf editor, productivity app).</li>
+        <li>Click <strong>Check My AI Ranking</strong> and wait while we run 20–50 prompts against ChatGPT.</li>
+        <li>Review your visibility score, which prompts mentioned you, and suggestions to improve.</li>
+      </ol>
+    </section>
+
+    <section class="docs-section">
+      <h2>Understanding the results</h2>
+      <ul>
+        <li><strong>Visibility score</strong> — Percentage of prompts where your site was mentioned.</li>
+        <li><strong>Keyword results</strong> — Each prompt we tested, with ✓ if you were mentioned.</li>
+        <li><strong>Suggestions</strong> — Keyword swaps and tips to improve AI visibility.</li>
+      </ul>
+    </section>
+
+    <section class="docs-section">
+      <h2>API</h2>
+      <p>If you prefer to use the API directly:</p>
+      <p><strong>POST</strong> <code>/analyse</code></p>
+      <pre class="code-block">{
+  "website": "example.com",
+  "category": "pdf editor"
+}</pre>
+      <p>Response includes <code>visibility_score</code>, <code>prompts_tested</code>, <code>mentions_found</code>, <code>prompt_results</code>, and <code>suggestions</code>.</p>
+      <p>Interactive API reference: <a href="/docs" class="link" target="_blank">/docs</a> (OpenAPI/Swagger).</p>
+    </section>
+
+    <section class="docs-section">
+      <h2>Which AI models?</h2>
+      <p>Currently we test against ChatGPT only. Support for Claude, Gemini, and others is planned.</p>
+    </section>
+  </main>
+</body>
+</html>

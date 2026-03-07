@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Rank - How do you rank with AI?</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">AI Rank</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/help">Docs</a>
+      <a href="/blog">Blog</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="hero">
+      <h1 class="hero-title">How do you rank with AI?</h1>
+      <p class="hero-subtitle">Find out if ChatGPT, Claude, Gemini, Grok & DeepSeek know your website.</p>
+    </header>
+
+    <form id="analyse-form" class="form">
+      <div class="form-group">
+        <label for="website">What's your website?</label>
+        <input type="text" id="website" name="website" placeholder="example.com" autocomplete="url">
+      </div>
+      <div class="form-group">
+        <label id="category-label" for="category">What does your website do?</label>
+        <input type="text" id="category" name="category" placeholder="pdf editor, productivity app, design tool..." autocomplete="off">
+      </div>
+      <button type="submit" id="submit-btn" class="btn-primary">
+        <span class="btn-text">Check My AI Ranking</span>
+        <span class="btn-loading" hidden>
+          <span class="spinner"></span> Analyzing...
+        </span>
+      </button>
+    </form>
+
+    <div id="error" class="error" hidden></div>
+
+    <section id="results" class="results" hidden>
+      <div class="results-header">
+        <h2>Your AI Visibility Score</h2>
+        <div class="score-display">
+          <span id="score-value" class="score-value">0</span>
+          <span class="score-unit">%</span>
+        </div>
+        <p class="score-meta"><span id="mentions-count">0</span> of <span id="prompts-count">0</span> prompts mentioned you</p>
+      </div>
+
+      <div class="results-detail">
+        <h3>Keyword Results</h3>
+        <div id="prompt-results" class="prompt-list"></div>
+      </div>
+
+      <div class="suggestions-section">
+        <h3>Suggestions to Improve</h3>
+        <p class="suggestions-intro">Use these keywords and tips so AI can recognise you better:</p>
+        <ul id="suggestions-list" class="suggestions-list"></ul>
+      </div>
+    </section>
+
+    <section id="example-output" class="example-output">
+      <h2 class="example-title">See what you get</h2>
+      <p class="example-desc">Your AI visibility score, keyword breakdown, and actionable suggestions to improve.</p>
+      <div class="example-card">
+        <div class="example-header">
+          <h3>Example result</h3>
+          <span class="example-score">28<span class="score-unit">%</span></span>
+        </div>
+        <p class="example-meta">6 of 27 prompts mentioned example.com</p>
+        <div class="example-prompts">
+          <div class="prompt-item mentioned"><span class="status">✓</span> best pdf editor</div>
+          <div class="prompt-item mentioned"><span class="status">✓</span> free online pdf editor</div>
+          <div class="prompt-item"><span class="status">—</span> top pdf editor</div>
+          <div class="prompt-item"><span class="status">—</span> popular pdf editor</div>
+          <div class="prompt-item mentioned"><span class="status">✓</span> best pdf editor 2025</div>
+        </div>
+        <div class="example-suggestions">
+          <p class="suggestion-label">Suggestions:</p>
+          <ul>
+            <li>Add "free" and "online" — AI recognises web tools with these keywords</li>
+            <li>Use "best pdf editor 2025" — current year improves visibility</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
