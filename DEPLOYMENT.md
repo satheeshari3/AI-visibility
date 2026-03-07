@@ -1,53 +1,33 @@
 # Deploying AI Rank
 
-## Quick deploy (Railway / Render / Fly.io)
-
 The app serves both the frontend and API from a single FastAPI process. Set `OPENAI_API_KEY` in your host's environment.
 
-### Railway
+## Render (recommended, free tier)
 
-1. Connect your repo at [railway.app](https://railway.app)
-2. Add `OPENAI_API_KEY` in Variables
-3. Set start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-4. Deploy
+1. Go to [render.com](https://render.com) and sign in
+2. **New** → **Web Service**
+3. Connect your GitHub repo: `satheeshari3/AI-visibility`
+4. Render will auto-detect `render.yaml` — no extra config needed
+5. Add environment variable: `OPENAI_API_KEY` = your key
+6. Click **Create Web Service**
 
-### Render
+You’ll get a URL like `ai-rank.onrender.com`.
 
-1. New Web Service → connect repo
-2. Build: `pip install -r requirements.txt`
-3. Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-4. Add `OPENAI_API_KEY` in Environment
+## Railway
 
-### Fly.io
+1. Go to [railway.app](https://railway.app) and sign in
+2. **New Project** → **Deploy from GitHub repo**
+3. Select `satheeshari3/AI-visibility`
+4. Add variable: `OPENAI_API_KEY` = your key
+5. Deploy (start command is in `railway.json`)
 
-1. Install [flyctl](https://fly.io/docs/hands-on/install-flyctl/)
-2. Run `fly launch` in the project directory
-3. Set secret: `fly secrets set OPENAI_API_KEY=your_key`
-4. Deploy: `fly deploy`
+## Fly.io
 
-Create `fly.toml` if needed:
-
-```toml
-app = "ai-rank"
-
-[env]
-  PORT = "8080"
-
-[http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = true
-  auto_start_machines = true
-  processes = ["app"]
-  min_machines_running = 0
-
-[[vm]]
-  memory = "512mb"
-  cpu_kind = "shared"
-  cpus = 1
-```
-
-Start command: `uvicorn main:app --host 0.0.0.0 --port 8080`
+1. Install [flyctl](https://fly.io/docs/hands-on/install-flyctl/): `brew install flyctl`
+2. Log in: `fly auth login`
+3. From the project folder: `fly launch` (use existing fly.toml)
+4. Set secret: `fly secrets set OPENAI_API_KEY=your_key`
+5. Deploy: `fly deploy`
 
 ## Environment variables
 
