@@ -10,6 +10,10 @@ SaaS that analyzes how visible a website is in ChatGPT responses. Enter your URL
 - **Suggestions** – Keyword swaps and tips so AI can recognise you better
 
 
+## Landing Page
+
+![Landing Page](screenshots/landing-page.png)
+
 
 **POST** `/analyse`
 
