@@ -9,37 +9,7 @@ SaaS that analyzes how visible a website is in ChatGPT responses. Enter your URL
 - **Visibility score** – Percentage of prompts where your site was mentioned
 - **Suggestions** – Keyword swaps and tips so AI can recognise you better
 
-## Setup
 
-1. **Create virtual environment and install dependencies**
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
-
-2. **Configure API key**
-
-   ```bash
-   cp .env.example .env
-   # Edit .env and add your OPENAI_API_KEY
-   ```
-
-## Run
-
-```bash
-uvicorn main:app --reload
-```
-
-- **App:** http://localhost:8000
-- **API docs:** http://localhost:8000/docs
-
-## Deployment
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for Railway, Render, and Fly.io.
-
-## Usage
 
 **POST** `/analyse`
 
